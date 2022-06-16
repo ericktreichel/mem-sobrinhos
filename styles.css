@@ -1,0 +1,221 @@
+@import url("https://fonts.googleapis.com/css2?family=Amatic+SC&family=Bree+Serif&family=Fira+Sans+Condensed:wght@200&family=Press+Start+2P&family=Russo+One&family=Secular+One&display=swap");
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  height: 100vh;
+  display: grid;
+  grid-template-columns: 1fr;
+  background: linear-gradient(
+    -45deg,
+    rgb(16, 57, 70),
+    #1f2e4f,
+    #2e1c2b,
+    #612139
+  );
+  background-size: 350% 350%;
+  animation: backgroundTransition 12s ease-in-out infinite;
+}
+
+h1 {
+  transform: translateY(50%);
+  margin-top: 30px;
+  display: -moz-inline-grid;
+  justify-content: center;
+  justify-items: center;
+  justify-self: center;
+  text-align: center;
+  /* margin: 0; */
+  /* grid-column: 1; */
+  color: rgb(255, 255, 255);
+  font-family: "IBM Plex Mono", monospace;
+  text-shadow: 1px 2px 5px rgba(128, 37, 119, 0.649);
+}
+
+.memory-game {
+  transform: translateY(-7%);
+  height: 640px;
+  width: 640px;
+  margin: auto;
+  display: flex;
+  flex-wrap: wrap;
+  perspective: 1000px;
+}
+
+.card {
+  height: calc(33.333% - 10px);
+  width: calc(25% - 10px);
+  margin: 5px;
+  position: relative;
+  box-shadow: 1px 1px 1px 1px rgba(1, 1, 1, 0.3);
+  cursor: pointer;
+  transform: scale(1);
+  transform-style: preserve-3d; /* não deixa o elemento achatado no plano */
+  transition: transform 0.9s;
+  border-radius: 10px;
+}
+
+.card:active {
+  transform: scale(0.92);
+  transition: transform 0.2s;
+}
+
+.card-front,
+.card-back {
+  width: 100%;
+  height: 100%;
+  padding: 6px;
+  position: absolute;
+  border-radius: 10px;
+  background-color: rgb(88, 59, 106);
+
+  backface-visibility: hidden; /* essencial pra retirar o verso do elemento, e mostra a outra imagem */
+}
+
+.card-front {
+  transform: rotateY(180deg);
+}
+
+/* Flip card Animation: */
+
+.card.flip {
+  transform: rotateY(180deg);
+}
+
+.refresh {
+  justify-content: center;
+  justify-items: center;
+  justify-self: center;
+  /* transform: translateX(500px); */
+  margin: 0;
+  /* grid-column: 1; */
+}
+
+.refresh-button {
+  margin-top: 0px;
+  font-size: 2rem;
+  color: rgb(255, 255, 255);
+  text-transform: uppercase;
+  font-weight: bolder;
+  border-radius: 5px;
+  padding: 10px;
+  display: inline;
+  background-color: rgb(132, 132, 132);
+  font-family: "IBM Plex Mono", monospace;
+  cursor: pointer;
+  justify-content: center;
+  text-align: center;
+}
+
+footer {
+  text-align: center;
+  color: rgb(194, 194, 194);
+}
+
+@keyframes backgroundTransition {
+  0% {
+    background-position: 0% 80%;
+  }
+  50% {
+    background-position: 80% 100%;
+  }
+  100% {
+    background-position: 0% 90%;
+  }
+}
+
+@media (max-width: 550px) {
+  body {
+    height: 100vh;
+    width: 100vw;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 0.2fr 0.2fr 0.5fr 0.2fr;
+    background: linear-gradient(
+      -45deg,
+      rgb(16, 57, 70),
+      #1f2e4f,
+      #2e1c2b,
+      #612139
+    );
+    background-size: 400% 400%;
+    animation: backgroundTransition 12s ease-in-out infinite;
+  }
+
+  h1 {
+    font-size: 1.4rem;
+    /* transform: translateY(60%); */
+    margin-top: 5px;
+    display: -moz-inline-grid;
+    justify-content: center;
+    justify-items: center;
+    justify-self: center;
+    text-align: center;
+    /* margin: 0; */
+    /* grid-column: 1; */
+    grid-row: 1;
+    /* color: rgb(197, 42, 42); */
+    font-family: "IBM Plex Mono", monospace;
+    text-shadow: 1px 2px 7px rgba(200, 200, 200, 0.649);
+    color: rgb(71, 221, 129);
+  }
+
+  .refresh-button {
+    grid-row: 2;
+    margin-bottom: 20px;
+    font-size: 1.2rem;
+    padding: 11px 16px;
+    transform: translateY(20%);
+  }
+
+  .memory-game {
+    transform: translateY(-38%);
+    height: 480px;
+    width: 480px;
+    margin: 0;
+    display: flex;
+    flex-wrap: wrap;
+    perspective: 1000px;
+    justify-content: center;
+    grid-row: 4;
+  }
+
+  .card {
+    height: calc(33.333% - 10px);
+    width: calc(25% - 0px);
+    margin: 4px;
+    position: relative;
+    box-shadow: 1px 1px 1px 1px rgba(1, 1, 1, 0.3);
+    cursor: pointer;
+    transform: scale(1);
+    transform-style: preserve-3d; /* não deixa o elemento achatado no plano */
+    transition: transform 0.8s;
+    border-radius: 10px;
+  }
+
+  .card-front,
+  .card-back {
+    width: 100%;
+    height: 100%;
+    padding: 0px;
+    position: absolute;
+    border-radius: 10px;
+    background-color: rgb(88, 59, 106);
+    backface-visibility: hidden; /* essencial pra retirar o verso do elemento, e mostra a outra imagem */
+  }
+
+  footer {
+    text-align: center;
+    color: rgb(194, 194, 194);
+    position: absolute;
+    align-self: flex-end;
+    justify-self: center;
+    margin-bottom: 20px;
+    /* transform: translateY(130px); */
+    grid-row: 3;
+  }
+}
