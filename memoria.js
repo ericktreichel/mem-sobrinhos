@@ -38,7 +38,6 @@ function checkForMatch() {
 function disableCards() {
   firstCard.removeEventListener("click", flipCard);
   secondCard.removeEventListener("click", flipCard);
-
   resetBoard();
 }
 
@@ -50,7 +49,7 @@ function unflipCards() {
     secondCard.classList.remove("flip");
 
     resetBoard();
-  }, 1300);
+  }, 1100);
 }
 
 function resetBoard() {
